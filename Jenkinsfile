@@ -8,8 +8,12 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-               git branch: 'main', url: 'https://github.com/ashokitschool/01_products_api.git'
-            }
+               git branch: 'main', url: 'stage('Git Clone') {
+    steps {
+        git branch: 'main', url: 'https://github.com/Dhatrijanch/01_products_api.git'
+    }
+}
+          }
         }
         stage('Maven Build'){
             steps{
