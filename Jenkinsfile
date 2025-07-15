@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     tools{
-        maven "Maven-3.9.9"
+        maven "Maven-3.9.10"
     }    
 
     stages {
@@ -22,14 +22,14 @@ pipeline {
         }
         stage('Docker Image'){
             steps{
-             sh 'docker build -t ashokit/products_api .'
+             sh 'docker build -t dhatrinch/products_api .'
             }
         }
         stage('Docker Image push'){
             steps{
             withCredentials([string(credentialsId: 'docker_pwd', variable: 'docker_pwd')]) {
-                   sh 'docker login -u ashokit -p ${docker_pwd}'
-                   sh 'docker push ashokit/products_api'
+                   sh 'docker login -u dhatrinch -p ${docker_pwd}'
+                   sh 'docker push dhatrinch/products_api'
             }
             }
         }
